@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1>meta tag by JS</h1>
+</body>
+<script>
+
+
+    const ogs = {
+        'og:url': 'https://google.com',
+        'og:title': '網頁標題',
+        'og:description': '網頁說明',
+        'og:image': 'https://fakeimg.pl/350x200/?text=Hello',
+    }
+    
+    for (const key of Object.keys(ogs)) {
+        console.log(`${key}: ${ogs[key]}`);
+        const metaTag = document.createElement('meta');
+        // metaTag.property = key;
+        metaTag.setAttribute('property', key);
+        metaTag.content = ogs[key];
+        document.getElementsByTagName("head")[0].append(metaTag);
+    }
+
+</script>
+
+</html>
